@@ -1,0 +1,40 @@
+:host {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid rgb(224, 224, 224);
+  display: flex;
+  padding: 25px;
+
+}
+
+
+.axis path,
+.axis line {
+   fill: none;
+    stroke: #000;
+     shape-rendering: crispEdges;
+   }
+
+.x.axis path {
+}
+
+.graph-sheet {
+  border-radius: 2px;
+  align-items: center;
+}
+
+
+.large {
+  width: 700px;
+  height: 400px;
+}
+
+.med {
+  width: 600px;
+  height: 300px;
+}
+
+.small {
+  width: 400px;
+  height: 200px;
+}
