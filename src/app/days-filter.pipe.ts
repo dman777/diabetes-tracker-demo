@@ -10,14 +10,16 @@ export class DaysFilterPipe implements PipeTransform {
   // returns ether curve object or curve array, so I used any.
   transform(chartData: Curve[], days: number): any {
     const checkToday = (targetDate)=> {
-      return chartData
-        .filter(curve => moment(curve.date, 'MM-DD-YYYY')
-          .isBefore(targetDate, 'day'));
+      const resultCharts = chartData.filter(curve => {
+          return moment(curve.date, 'MM-DD-YYYY').isSameOrBefore(targetDate, 'day');
+        })
+
+      return resultCharts.splice(0, days);
     };
 
     if (chartData) {
       // addd # days to today
-      const targetDate = moment().add(days, 'days');
+      const targetDate = moment();
       return checkToday(targetDate);
     }
   }

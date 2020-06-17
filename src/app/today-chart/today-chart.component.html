@@ -1,6 +1,6 @@
 <div class="chart-body">
-  <div *ngFor="let chart of charts | async | daysFilter:1">
-    <line-chart [curveData]="chart"></line-chart>
+  <div *ngFor="let chart of charts | async | daysFilter:1" >
+    <line-chart [curve-data]="chart" graph-size="large"></line-chart>
   </div>
 <div>
 

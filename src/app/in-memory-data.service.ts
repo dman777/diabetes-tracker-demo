@@ -27,9 +27,9 @@ export class InMemoryDataService  implements InMemoryDbService {
       glucoseLevel: 400
     };
 
-    createCurve = (dayNumber: number): Curve => { 
+    createCurve = (dayNumber: number): Curve => {
       return {
-        date: moment().add(dayNumber, 'days').format('MM-DD-YYYY'),
+        date: moment().local().subtract(dayNumber, 'days').format('MM-DD-YYYY'),
         timestamps: [
           this.timestamps1,
           this.timestamps2,
@@ -39,11 +39,10 @@ export class InMemoryDataService  implements InMemoryDbService {
         ]
       }
     }
-  createDb() {
-    const days: number[] = Array.from({length: 15}, (x, index) => index + 1); 
-    const curvesMissingToday: Curve[] = days.map(dayNumber => this.createCurve(dayNumber));
-    const curves = [this.createCurve(0), ...curvesMissingToday];
 
+  createDb() {
+    const days: number[] = Array.from({length: 35}, (x, index) => index);
+    const curves: Curve[] = days.map(dayNumber => this.createCurve(dayNumber));
     return { curves };
   }
 }

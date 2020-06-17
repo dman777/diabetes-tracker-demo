@@ -15,6 +15,7 @@
 mat-sidenav {
   width: 280px;
   border: 0 !important;
+  padding-top: 10px;
 }
 
 .main {

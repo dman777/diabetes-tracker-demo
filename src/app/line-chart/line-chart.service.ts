@@ -6,8 +6,8 @@ import * as d3 from 'd3';
 export class LineChartService {
   constructor(private lineChartHelperService: LineChartHelperService) { }
 
-    makeGraph(curveData, divEl): any {
-      const graph = this.lineChartHelperService.setGraphSize('large');
+    makeGraph(curveData, divEl, graphSize): any {
+      const graph = this.lineChartHelperService.setGraphSize(graphSize);
 
       const margin = {top: 20, right: 30, bottom: 30, left: 30};
       const width = graph.width - margin.left - margin.right;
@@ -51,7 +51,8 @@ export class LineChartService {
 
       // attach D3 graph to element
 
-      const svg = d3.select(divEl).append('svg')
+      const svg = d3.select(divEl)
+       .append('svg')
        .attr('width', width + margin.left + margin.right)
        .attr('height', height + margin.top + margin.bottom)
        .append('g')
@@ -82,17 +83,6 @@ export class LineChartService {
         .attr('class', 'y axis')
         .call(yAxis)
 
-      // Add the value curve path.
-      svg.append('path')
-        .attr('style', 'fill: none; stroke: steelblue; stroke-width: 1.5px')
-        .attr('d', curve(curveData.timestamps))
-        .transition()
-          .duration(500)
-          .attrTween("stroke-dasharray", function() {
-            const len = this.getTotalLength();
-            return function(t) { return (d3.interpolateString("0," + len, len + ",0"))(t) };
-          });
-
       const graphTitle =
         this.lineChartHelperService.graphTitleGenerator(curveData);
 
@@ -105,5 +95,16 @@ export class LineChartService {
         .style("font-family",
           "'Roboto Mono',RobotoDraft,Helvetica,Arial,sans-serif")
         .text(graphTitle);
+      // Add the value curve path.
+      svg.append('path')
+        .attr('style', 'fill: none; stroke: steelblue; stroke-width: 1.5px')
+        .attr('d', curve(curveData.timestamps))
+        .transition()
+          .duration(500)
+          .attrTween("stroke-dasharray", function() {
+            const len = this.getTotalLength();
+            return function(t) { return (d3.interpolateString("0," + len, len + ",0"))(t) };
+          });
+
     }
 }

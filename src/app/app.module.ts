@@ -50,6 +50,7 @@ import { DaysFilterPipe } from './days-filter.pipe';
 import { LineChartService } from './line-chart/line-chart.service';
 import { LineChartHelperService } from './line-chart/line-chart-helper.service';
 import { LastSevenDaysChartComponent } from './last-seven-days-chart/last-seven-days-chart.component';
+import { MonthChartComponent } from './month-chart/month-chart.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { LastSevenDaysChartComponent } from './last-seven-days-chart/last-seven-
     LineChartComponent,
     DaysFilterPipe,
     LastSevenDaysChartComponent,
+    MonthChartComponent,
   ],
   imports: [
     BrowserModule,

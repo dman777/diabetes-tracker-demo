@@ -1,6 +1,8 @@
 <div class="chart-body">
   <div *ngFor="let chart of charts | async | daysFilter:7" class="last-seven-days-body">
-      <line-chart [curveData]="chart"></line-chart>
+      <line-chart
+        [curve-data]="chart"
+        graph-size="med"></line-chart>
   </div>
 </div>
 

@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class GetChartDataService {
-  private chartDataUrl = 'api/curves';
+  private chartDataUrl:string = 'api/curves';
 
 
   getData (): Observable<any> {

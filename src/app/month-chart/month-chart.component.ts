@@ -1,13 +1,13 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GetChartDataService } from '../get-chart-data.service';
 
 @Component({
-  selector: 'app-today-chart',
-  templateUrl: './today-chart.component.html',
-  styleUrls: ['./today-chart.component.css']
+  selector: 'app-month-chart',
+  templateUrl: './month-chart.component.html',
+  styleUrls: ['./month-chart.component.css']
 })
+export class MonthChartComponent implements OnInit {
 
-export class TodayChartComponent implements OnInit {
   public charts;
 
   constructor(
@@ -17,5 +17,4 @@ export class TodayChartComponent implements OnInit {
   ngOnInit() {
     this.charts = this.getChartDataService.getData();
   }
-
 }
