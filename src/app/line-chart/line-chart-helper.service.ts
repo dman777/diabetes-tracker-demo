@@ -26,7 +26,6 @@ export class LineChartHelperService {
     var year = today.getFullYear();
     var refDate = (month <= 9 ? '0' + month: month)
                  + '-' + (day <= 9 ? '0' + day: day) + '-' + year;
-    console.log(refDate);
     var graphTitle = moment(data.date, 'MM-DD-YYYY')
       .calendar(moment(refDate, 'MM-DD-YYYY'), formats);
     return graphTitle;

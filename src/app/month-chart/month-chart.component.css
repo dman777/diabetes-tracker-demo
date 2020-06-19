@@ -1,16 +1,5 @@
 .chart-body {
-  padding: 35px 0;
-  justify-items: center;
-  margin: auto;
-  display: grid;
   max-width: 1108px;
-  grid-gap: 25px;
   grid-template-columns: repeat( auto-fit, minmax(352px, 1fr) )
 }
-
-.last-seven-days-body {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 

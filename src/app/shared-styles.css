@@ -1,0 +1,22 @@
+.chart-body {
+  padding: 35px 0;
+  justify-items: center;
+  margin: auto;
+  display: grid;
+  grid-gap: 25px;
+}
+
+.chart-repeater {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+line-chart {
+  opacity: 0;
+  transition: opacity 170ms ease-in;
+}
+
+.show-chart {
+  opacity: 1;
+}
+

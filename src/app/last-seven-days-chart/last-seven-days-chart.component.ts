@@ -1,9 +1,6 @@
 import {
   Component,
   OnInit,
-  Renderer2,
-  ElementRef,
-  ViewEncapsulation,
 } from '@angular/core';
 
 import { GetChartDataService } from '../get-chart-data.service';
@@ -11,29 +8,28 @@ import { GetChartDataService } from '../get-chart-data.service';
 @Component({
   selector: 'app-last-seven-days-chart',
   templateUrl: './last-seven-days-chart.component.html',
-  styleUrls: ['./last-seven-days-chart.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  styleUrls: [
+    './last-seven-days-chart.component.css',
+    '../shared-styles.css',
+  ],
 })
 
 export class LastSevenDaysChartComponent implements OnInit {
-
   public charts;
+  public activate;
 
   constructor(
     private getChartDataService: GetChartDataService,
-    private renderer: Renderer2,
-    private el: ElementRef,
   ) {}
-
-  staggerGraphs(): void {
-    console.log(this.el.nativeElement);
-    const chartElements = this.el.nativeElement.querySelectorAll('line-chart');
-    chartElements.forEach((el) => el.classList.add('.show-chart'));
-  }
 
   ngOnInit(): void {
     this.charts = this.getChartDataService.getData();
-    //this.charts.subscribe({ complete: () => { setTimeout(()=> this.staggerGraphs(), 200) }});
+    this.charts.subscribe({
+      complete: () => {
+        // setTimeout to give time for d3 to create graphs
+        setTimeout(() => this.activate = true, 50);
+      },
+    });
   }
 
 }

@@ -7,20 +7,11 @@ import { animate, trigger, transition, style, query, state } from '@angular/anim
   selector: 'line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.css'],
-
-  animations: [
-    trigger('fade', [
-      state('false', style({ opacity: 0 })),
-      state('true', style({ opacity: 1 })),
-      transition('false => true', animate('150ms 2000ms ease-in')),
-    ]),
-  ]
 })
 
 export class LineChartComponent {
   @Input('curve-data') curveData: Array<object>;
   @Input('graph-size') graphSize: String;
-  public fadeInStart: boolean = false;
 
 
   constructor(
@@ -35,6 +26,5 @@ export class LineChartComponent {
       this.elRef.nativeElement.querySelector('.graph-sheet'),
       this.graphSize,
     );
-    this.fadeInStart = true;
   }
 }

@@ -8,7 +8,7 @@ export class GetChartDataService {
   private chartDataUrl:string = 'api/curves';
 
 
-  getData (): Observable<any> {
+  getData(): Observable<any> {
     return this.http.get(this.chartDataUrl);
   }
 

@@ -51,6 +51,7 @@ import { LineChartService } from './line-chart/line-chart.service';
 import { LineChartHelperService } from './line-chart/line-chart-helper.service';
 import { LastSevenDaysChartComponent } from './last-seven-days-chart/last-seven-days-chart.component';
 import { MonthChartComponent } from './month-chart/month-chart.component';
+import { StaggerAnimationDirective } from './stagger-animation.directive';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { MonthChartComponent } from './month-chart/month-chart.component';
     DaysFilterPipe,
     LastSevenDaysChartComponent,
     MonthChartComponent,
+    StaggerAnimationDirective,
   ],
   imports: [
     BrowserModule,
