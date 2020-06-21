@@ -1,6 +1,6 @@
 <div class="chart-body" [staggerAnimation]="activate">
   <div *ngFor="let chart of charts | async | daysFilter: 30" class="chart-repeater">
-    <line-chart [curve-data]="chart"></line-chart>
+    <line-chart [curve-data]="chart" graph-size="small"></line-chart>
   </div>
 <div>
 

@@ -24,7 +24,7 @@ export class InMemoryDataService  implements InMemoryDbService {
     };
     timestamps5: Timestamp = {
       timeStamp: "23:00",
-      glucoseLevel: 400
+      glucoseLevel: 350
     };
 
     createCurve = (dayNumber: number): Curve => {
@@ -33,7 +33,7 @@ export class InMemoryDataService  implements InMemoryDbService {
         timestamps: [
           this.timestamps1,
           this.timestamps2,
-          this.timestamps3,
+          //   this.timestamps3,
           this.timestamps4,
           this.timestamps5,
         ]

@@ -20,7 +20,7 @@ export class StaggerAnimationDirective {
   staggerGraphs(): void {
     const chartElements = this.el.nativeElement.querySelectorAll('line-chart');
     chartElements.forEach((el, i) => {
-      setTimeout(() => { el.classList.add('show-chart') }, (i * 120) );
+      setTimeout(() => { el.classList.add('show-chart') }, (i * 90) );
     });
   }
 
